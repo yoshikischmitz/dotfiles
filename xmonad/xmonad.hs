@@ -14,7 +14,7 @@ main = do
 
   xmonad $ defaultConfig 
         {
-          manageHook = manageDocks <+> manageHook defaultConfig
+          manageHook = manageDocks <+> manageHook defaultConfig-- <+> (className =? "trayer" --> doIgnore)
           , layoutHook = avoidStruts $ layoutHook defaultConfig
           , logHook = dynamicLogWithPP $ xmobarPP
                               { ppOutput = hPutStrLn xmproc,
@@ -24,4 +24,6 @@ main = do
         } `additionalKeys`
         [   ((mod4Mask, xF86XK_MonBrightnessUp), spawn "xbacklight +20")
           , ((mod4Mask, xF86XK_MonBrightnessDown), spawn "xbacklight -20")
+          , ((0, xF86XK_AudioLowerVolume), spawn "amixer -D pulse sset Master 10%-")
+          , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -D pulse sset Master 10%+")
         ]

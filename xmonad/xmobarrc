@@ -7,10 +7,11 @@ Config {
                 Run Swap [] 10,
                 Run Date "%a %b %_d %l:%M" "date" 10,
                 Run Network "ra0" [] 10,
+                Run Battery ["-t","<left>% / <timeleft>","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10,
                 Run StdinReader,
-                Run Battery ["-t","<left>% / <timeleft>","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10
+                Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume"] "myvolume" 10
                 ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %ra0% | %battery% | %cpu% | %memory% * %swap%    <fc=#ee9a00>%date%</fc> | %KADS%"
+       , template = "%StdinReader% }{ %ra0% | %battery% | %cpu% | %memory% * %swap%  <fc=#ee9a00>%date%</fc> | %KADS% | %myvolume%"
        }

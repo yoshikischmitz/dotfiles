@@ -22,8 +22,8 @@ main = do
                               }
           , modMask = mod4Mask 
         } `additionalKeys`
-        [   ((mod4Mask, xF86XK_MonBrightnessUp), spawn "xbacklight +20")
-          , ((mod4Mask, xF86XK_MonBrightnessDown), spawn "xbacklight -20")
+        [   ((0, xF86XK_MonBrightnessUp), spawn "xbacklight +20")
+          , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -20")
           , ((0, xF86XK_AudioLowerVolume), spawn "amixer -D pulse sset Master 10%-")
           , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -D pulse sset Master 10%+")
         ]

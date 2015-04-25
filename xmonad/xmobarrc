@@ -9,9 +9,10 @@ Config {
                 Run Network "ra0" [] 10,
                 Run Battery ["-t","<left>% / <timeleft>","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10,
                 Run StdinReader,
-                Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume"] "myvolume" 10
+                Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume"] "myvolume" 5,
+		Run Com "/usr/bin/ibus" ["engine"] "lang_input" 10
                 ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %ra0% | %battery% | %cpu% | %memory% * %swap%  <fc=#ee9a00>%date%</fc> | %KADS% | %myvolume%"
+       , template = "%StdinReader% }{ %lang_input% |  %ra0% | %battery% | %cpu% | %memory% * %swap%  <fc=#ee9a00>%date%</fc> | %KADS% | %myvolume%"
        }

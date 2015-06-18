@@ -1,5 +1,5 @@
 Config {
-       font = "xft:Monospace:pixelsize=30",
+       font = "xft:TakaoGothic:pixelsize=30",
        commands = [
                 Run Weather "KADS" ["-t"," <tempF>F","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 36000,
                 Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
@@ -10,9 +10,9 @@ Config {
                 Run Battery ["-t","<left>% / <timeleft>","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10,
                 Run StdinReader,
                 Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume"] "myvolume" 5,
-		Run Com "/usr/bin/ibus" ["engine"] "lang_input" 10
+                Run Com "/bin/bash" ["-c", "~/.xmonad/stall-monitor"] "wc" 10
                 ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %lang_input% |  %ra0% | %battery% | %cpu% | %memory% * %swap%  <fc=#ee9a00>%date%</fc> | %KADS% | %myvolume%"
+       , template = "%StdinReader% }{%ra0% | %battery% | %cpu% | %memory% * %swap%  <fc=#ee9a00>%date%</fc> | %KADS% | %myvolume% | %wc%"
        }
